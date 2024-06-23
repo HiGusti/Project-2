@@ -1,0 +1,31 @@
+
+name: 'dbt_project2_t1'
+version: '1.0.0'
+config-version: 2
+
+# Pengaturan ini mengonfigurasi profil mana yang digunakan dbt untuk proyek ini.
+profile: 'prf_dbt_project2_t1'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+
+clean-targets:          # direktori yang akan dihapus oleh `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_project2_t1:
+    # Konfigurasi yang ditunjukkan oleh + dan berlaku untuk semua file di bawah models/staging/warehouse
+    staging:
+      +materialized: table
+    warehouse:
+      +materialized: table
+    mart:
+      +materialized: table
+

@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw
+    database: dbt_project2
+    schema: public  #ini schema yang digunakan untuk tarik data
+    tables:
+      - name: categories
+      - name: customers
+      - name: employee_territories
+      - name: employees
+      - name: order_details
+      - name: orders
+      - name: products
+      - name: regions
+      - name: shippers
+      - name: suppliers
+      - name: territories

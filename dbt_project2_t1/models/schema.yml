@@ -1,0 +1,364 @@
+# version: 2
+
+# sources:
+#   - name: raw_categories
+#   - name: raw_customers
+
+version: 2
+
+sources:
+  - name: project_2
+    tables:
+      - name: categories
+        description: "Source table for categories."
+      - name: customers
+        description: "Source table for customers."
+      - name: employee_territories
+        description: "Source table for employee territories."
+      - name: employees
+        description: "Source table for employees."
+      - name: order_details
+        description: "Source table for order details."
+      - name: orders
+        description: "Source table for orders."
+      - name: products
+        description: "Source table for products."
+      - name: regions
+        description: "Source table for regions."
+      - name: shippers
+        description: "Source table for shippers."
+      - name: suppliers
+        description: "Source table for suppliers."
+      - name: territories
+        description: "Source table for territories."
+
+models:
+  - name: raw_categories
+    description: "This table contains raw data from the categories table."
+    columns:
+      - name: category_id
+        description: "Primary key of the category."
+      - name: category_name
+        description: "Name of the category."
+      - name: description
+        description: "Description of the category."
+      - name: picture
+        description: "Picture of the category."
+
+  - name: raw_customers
+    description: "This table contains raw data from the customers table."
+    columns:
+      - name: customer_id
+        description: "Primary key of the customer."
+      - name: company_name
+        description: "Name of the company."
+      - name: contact_name
+        description: "Name of the contact person."
+      - name: contact_title
+        description: "Title of the contact person."
+      - name: address
+        description: "Address of the customer."
+      - name: city
+        description: "City of the customer."
+      - name: region
+        description: "Region of the customer."
+      - name: postal_code
+        description: "Postal code of the customer."
+      - name: country
+        description: "Country of the customer."
+      - name: phone
+        description: "Phone number of the customer."
+      - name: fax
+        description: "Fax number of the customer."
+
+  - name: raw_employee_territories
+    description: "This table contains raw data from the employee territories table."
+    columns:
+      - name: employeeID
+        description: "ID of the employee."
+      - name: territoryID
+        description: "ID of the territory."
+
+  - name: raw_employees
+    description: "This table contains raw data from the employees table."
+    columns:
+      - name: employeeID
+        description: "Primary key of the employee."
+      - name: lastName
+        description: "Last name of the employee."
+      - name: firstName
+        description: "First name of the employee."
+      - name: title
+        description: "Title of the employee."
+      - name: titleOfCourtesy
+        description: "Title of courtesy for the employee."
+      - name: birthDate
+        description: "Birth date of the employee."
+      - name: hireDate
+        description: "Hire date of the employee."
+      - name: address
+        description: "Address of the employee."
+      - name: city
+        description: "City where the employee resides."
+      - name: region
+        description: "Region where the employee resides."
+      - name: postalCode
+        description: "Postal code of the employee's city."
+      - name: country
+        description: "Country of the employee."
+      - name: homePhone
+        description: "Home phone number of the employee."
+      - name: extension
+        description: "Extension number of the employee."
+      - name: photo
+        description: "Photo of the employee."
+      - name: notes
+        description: "Notes about the employee."
+      - name: reportsTo
+        description: "Manager to whom the employee reports."
+      - name: photoPath
+        description: "Path to the employee's photo."
+
+  - name: raw_order_details
+    description: "This table contains raw data from the order details table."
+    columns:
+      - name: orderID
+        description: "ID of the order."
+      - name: productID
+        description: "ID of the product."
+      - name: unitPrice
+        description: "Unit price of the product."
+      - name: quantity
+        description: "Quantity of the product ordered."
+      - name: discount
+        description: "Discount applied to the order."
+
+  - name: raw_orders
+    description: "This table contains raw data from the orders table."
+    columns:
+      - name: orderID
+        description: "Primary key of the order."
+      - name: customerID
+        description: "ID of the customer."
+      - name: employeeID
+        description: "ID of the employee who handled the order."
+      - name: orderDate
+        description: "Date the order was placed."
+      - name: requiredDate
+        description: "Date the order is required."
+      - name: shippedDate
+        description: "Date the order was shipped."
+      - name: shipVia
+        description: "Shipping method."
+      - name: freight
+        description: "Freight cost."
+      - name: shipName
+        description: "Name of the recipient."
+      - name: shipAddress
+        description: "Address of the recipient."
+      - name: shipCity
+        description: "City of the recipient."
+      - name: shipRegion
+        description: "Region of the recipient."
+      - name: shipPostalCode
+        description: "Postal code of the recipient."
+      - name: shipCountry
+        description: "Country of the recipient."
+
+  - name: raw_products
+    description: "This table contains raw data from the products table."
+    columns:
+      - name: productID
+        description: "Primary key of the product."
+      - name: productName
+        description: "Name of the product."
+      - name: supplierID
+        description: "ID of the supplier."
+      - name: categoryID
+        description: "ID of the category."
+      - name: quantityPerUnit
+        description: "Quantity per unit."
+      - name: unitPrice
+        description: "Unit price of the product."
+      - name: unitsInStock
+        description: "Units in stock."
+      - name: unitsOnOrder
+        description: "Units on order."
+      - name: reorderLevel
+        description: "Reorder level."
+      - name: discontinued
+        description: "Indicates if the product is discontinued."
+
+  - name: raw_regions
+    description: "This table contains raw data from the regions table."
+    columns:
+      - name: regionID
+        description: "Primary key of the region."
+      - name: regionDescription
+        description: "Description of the region."
+
+  - name: raw_shippers
+    description: "This table contains raw data from the shippers table."
+    columns:
+      - name: shipperID
+        description: "Primary key of the shipper."
+      - name: companyName
+        description: "Name of the company."
+      - name: phone
+        description: "Phone number of the company."
+
+  - name: raw_suppliers
+    description: "This table contains raw data from the suppliers table."
+    columns:
+      - name: supplierID
+        description: "Primary key of the supplier."
+      - name: companyName
+        description: "Name of the company."
+      - name: contactName
+        description: "Name of the contact person."
+      - name: contactTitle
+        description: "Title of the contact person."
+      - name: address
+        description: "Address of the supplier."
+      - name: city
+        description: "City of the supplier."
+      - name: region
+        description: "Region of the supplier."
+      - name: postalCode
+        description: "Postal code of the supplier."
+      - name: country
+        description: "Country of the supplier."
+      - name: phone
+        description: "Phone number of the supplier."
+      - name: fax
+        description: "Fax number of the supplier."
+      - name: homePage
+        description: "Homepage of the supplier."
+
+  - name: raw_territories
+    description: "This table contains raw data from the territories table."
+    columns:
+      - name: territoryID
+        description: "Primary key of the territory."
+      - name: territoryDescription
+        description: "Description of the territory."
+      - name: regionID
+        description: "ID of the region."
+  
+  - name: dwh_order_details
+    description: "Transformed table for order details in the data warehouse."
+    columns:
+      - name: orderID
+        description: "ID of the order."
+      - name: productID
+        description: "ID of the product."
+      - name: order_unitprice
+        description: "Unit price of the product in the order."
+      - name: quantity
+        description: "Quantity of the product ordered."
+      - name: discount
+        description: "Discount applied to the order."
+      - name: orderDate
+        description: "Date the order was placed."
+      - name: shippedDate
+        description: "Date the order was shipped."
+      - name: ship_name
+        description: "Name of the recipient."
+      - name: ship_country
+        description: "Country of the recipient."
+      - name: productName
+        description: "Name of the product."
+      - name: product_unitprice
+        description: "Unit price of the product."
+      - name: quantityPerUnit
+        description: "Quantity per unit of the product."
+      - name: unitsInStock
+        description: "Units in stock of the product."
+      - name: unitsOnOrder
+        description: "Units on order of the product."
+      - name: reorderLevel
+        description: "Reorder level of the product."
+      - name: discontinued
+        description: "Indicates if the product is discontinued."
+      - name: category_name
+        description: "Name of the product category."
+      - name: supplier_companyname
+        description: "Name of the supplier company."
+      - name: supplier_contactname
+        description: "Name of the supplier contact person."
+      - name: supplier_postalcode
+        description: "Postal code of the supplier."
+      - name: supplier_country
+        description: "Country of the supplier."
+      - name: supplier_phone
+        description: "Phone number of the supplier."
+      - name: employee_lastname
+        description: "Last name of the employee."
+      - name: employee_firstname
+        description: "First name of the employee."
+      - name: employee_title
+        description: "Title of the employee."
+      - name: employee_birthdate
+        description: "Birth date of the employee."
+      - name: employee_city
+        description: "City where the employee resides."
+      - name: employee_region
+        description: "Region where the employee resides."
+      - name: employee_postalcode
+        description: "Postal code of the employee."
+      - name: employee_country
+        description: "Country of the employee."
+      - name: employee_homephone
+        description: "Home phone number of the employee."
+      - name: shipper_companyname
+        description: "Name of the shipper company."
+      - name: shipper_phone
+        description: "Phone number of the shipper."
+  
+  - name: datamart_monthly_supplier_gross_revenue
+    description: "Tabel pendapatan kotor setiap bulan supplier"
+    columns:
+      - name: supplier_companyname
+        description: "Nama perusahaan supplier"
+        tests:
+          - not_null
+      - name: month
+        description: "Bulan dari tanggal order"
+        tests:
+          - not_null
+      - name: gross_revenue
+        description: "Pendapatan kotor supplier setiap bulan"
+        tests:
+          - not_null
+
+  - name: datamart_monthly_category_sold
+    description: tabel kategori produk paling banyak terjual setiap bulan
+    columns:
+      - name: category_name
+        description: "Name of the product category"
+        tests:
+          - not_null
+      - name: month
+        description: "Month of the sales data"
+        tests:
+          - not_null
+      - name: total_quantity_sold
+        description: "Total quantity of products sold in the category for the month"
+        tests:
+          - not_null
+
+  - name: datamart_monthly_best_employee
+    description: "Table of the best employee based on total gross revenue generated in a month"
+    columns:
+      - name: best_employee_name
+        description: "Name of the employee who generated the highest gross revenue in the month"
+        tests:
+          - not_null
+      - name: month
+        description: "Month in which the revenue was calculated, formatted as YYYY-MM-DD"
+        tests:
+          - not_null
+      - name: total_gross_revenue
+        description: "Total gross revenue generated by the best employee in the month"
+        tests:
+          - not_null
